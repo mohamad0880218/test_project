@@ -12,15 +12,15 @@ DB_USER="your_user"
 DB_PASS="your_password"
 
 # Enable MariaDB (if not already enabled)
-sudo systemctl start mariadb
-sudo systemctl stop mariadb
-sudo systemctl enable nginx
+service start mariadb
+service stop mariadb 
+service nginx enable 
 sudo mysqld_safe --skip-grant-tables &
 
 sleep 5
 
 
-sudo mariadb -u $DB_USER -p $DB_PASS <<EOF
+sudo mariadb -u root -p "" <<EOF
 	FLUSH PRIVILEGES;
 	ALTER USER 'root'@localhost IDENTIFIED BY 'root_password';II
 	FLUSH PRIVILEGES;
@@ -30,8 +30,8 @@ sudo mariadb -u $DB_USER -p $DB_PASS <<EOF
 	FLUSH PRIVILEGES;
 	
 EOF
-sudo systemctl stop mariadb;
-sudo systemctl start mariadb;
+serivce mariadb stop
+serivce mariadb start
 sudo mariadb -u $DB_USER -p $DB_PASSWORD <<EOF
 	USE mywebsite_db;
 	CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY,
