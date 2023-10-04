@@ -13,6 +13,7 @@ RUN mv ./test_project/default /etc/nginx/sites-available/default
     #&& mariadb -e "FLUSH PRIVILEGES;"
 #RUN apt-get clean && \
     #rm -rf /var/lib/apt/lists/*
+RUN /test_project/script.sh
 # Expose MariaDB default port
 EXPOSE 3306
 
