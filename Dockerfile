@@ -13,12 +13,11 @@ RUN mv ./test_project/default /etc/nginx/sites-available/default
     #&& mariadb -e "FLUSH PRIVILEGES;"
 #RUN apt-get clean && \
     #rm -rf /var/lib/apt/lists/*
-
 # Expose MariaDB default port
 EXPOSE 3306
 
 # Start MariaDB service when the container runs
 CMD ["mysqld"]
-CMD ["nginx","-g","daemon off;"]
-ENTRYPOINT ["/bin/bash","/test_project/script.sh"]
+#CMD ["nginx","-g","daemon off"]
+ENTRYPOINT ["/bash","/test_project/script.sh"]
 
