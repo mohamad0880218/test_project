@@ -23,7 +23,7 @@ systemctl start mariadb
 sleep 5
 #ALTER USER 'root'@localhost IDENTIFIED BY 'root_password';
 
-mariadb -u root -p"" <<EOF
+mariadb -u root -p" " <<EOF
 	FLUSH PRIVILEGES;
 	
 	FLUSH PRIVILEGES;
@@ -34,10 +34,10 @@ mariadb -u root -p"" <<EOF
 	
 EOF
 echo "database created"
-systemctl stop mariadb
-service mariadb stop
-systemctl start mariadb
-sericce mariadb start
+#systemctl stop mariadb
+#service mariadb stop
+#systemctl start mariadb
+#sericce mariadb start
 mariadb -u $DB_USER -p"your_password" <<EOF
 	USE mywebsite_db;
 	CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY,
