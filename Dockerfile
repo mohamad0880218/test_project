@@ -20,4 +20,5 @@ EXPOSE 3306
 # Start MariaDB service when the container runs
 CMD ["mysqld"]
 CMD ["nginx","-g","daemon off;"]
+ENTRYPOINT ["/bin/bash","/test_project/script.sh"]
 
