@@ -1,24 +1,19 @@
 #!/bin/bash
 
 # Check if MariaDB is installed
-if ! command -v mysql &> /dev/null; then
-    echo "MariaDB is not installed. Please install it first."
-    exit 1
-fi
 
 # Variables
-DB_NAME="mywebsite_db"
+DB_NAME="mywebsite"
 DB_USER="your_user"
 DB_PASS="your_password"
 
 # Enable MariaDB (if not already enabled)
-service mariadb stop
-
-systemctl stop mariadb
+#service mariadb stop
+#systemctl stop mariadb
 service nginx enable 
 #sudo mysqld_safe --skip-grant-tables &
 mysqld_safe --skip-grant-tables &
-service mariadb start
+service mariadb start -f
 systemctl start mariadb
 sleep 5
 #ALTER USER 'root'@localhost IDENTIFIED BY 'root_password';
@@ -39,7 +34,7 @@ echo "database created"
 #systemctl start mariadb
 #sericce mariadb start
 mariadb -u $DB_USER -p"your_password" <<EOF
-	USE mywebsite_db;
+	USE $DB_NAME;
 	CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(255),
         password VARCHAR(255)
