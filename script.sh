@@ -13,7 +13,7 @@ DB_PASS="your_password"
 service nginx enable 
 #sudo mysqld_safe --skip-grant-tables &
 mysqld_safe --skip-grant-tables &
-service mariadb start -f
+service mariadb start 
 systemctl start mariadb
 sleep 5
 #ALTER USER 'root'@localhost IDENTIFIED BY 'root_password';
