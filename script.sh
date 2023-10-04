@@ -21,11 +21,11 @@ mysqld_safe --skip-grant-tables &
 service mariadb start
 systemctl start mariadb
 sleep 5
-
+#ALTER USER 'root'@localhost IDENTIFIED BY 'root_password';
 
 mariadb -u root -p"" <<EOF
 	FLUSH PRIVILEGES;
-	ALTER USER 'root'@localhost IDENTIFIED BY 'root_password';
+	
 	FLUSH PRIVILEGES;
 	CREATE DATABASE mywebsite;
 	CREATE USER 'your_user'@localhost IDENTIFIED BY 'your_password';
@@ -33,6 +33,7 @@ mariadb -u root -p"" <<EOF
 	FLUSH PRIVILEGES;
 	
 EOF
+echo "database created"
 systemctl stop mariadb
 service mariadb stop
 systemctl start mariadb
@@ -45,6 +46,7 @@ mariadb -u $DB_USER -p"your_password" <<EOF
 	);
 
 EOF
+echo "database and user created"
 # Create the database
 #mysql -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
 
