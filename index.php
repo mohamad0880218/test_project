@@ -1,9 +1,9 @@
 <?php
 // Database connection
 $servername = "localhost"; // Change this if your database is hosted elsewhere
-$username = "your_user"; // Change this to your database username
-$password = "your_password"; // Change this to your database password
-$dbname = "mywebsite_db"; // Change this to your database name
+$username = "wordpress"; // Change this to your database username
+$password = "wordpress"; // Change this to your database password
+$dbname = "wordpress"; // Change this to your database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
