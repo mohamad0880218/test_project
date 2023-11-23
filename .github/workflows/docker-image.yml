@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image 1
       run: |
-        docker build . -f Dockerfile_wp -t wordpress
+        docker build . -t wordpress
         docker run -d -p 7070:80 wordpress
       
    
