@@ -14,5 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Build the Docker image 1
+      run: |
+        docker build . --file Dockerfile_wp --tag wordpress
+        docker run -d -p 7070:80 wordpress
+      
+    - name: Build the Docker image 1
+      run: |
+        docker build . --file Dockerfile_db --tag database
+        docker run -d database
+      
