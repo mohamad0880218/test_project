@@ -1,21 +1,15 @@
 <?php
-$serverName = "finalproject1.mysql.database.azure.com";
-$connectionOptions = array(
-    "Database" => "mysql",
-    "Uid" => "rizwan",
-    "PWD" => "Pubg@39168"
-);
+    $con = mysqli_init();
+    mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL);
+    mysqli_real_connect($conn, "finalproject1.mysql.database.azure.com", "rizwan    ", "{Pubg@39168}", "{mysql}", 3306, MYSQLI_CLIENT_SSL);
+    if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+    }
 
-// Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-echo "Connected successfully";
+    echo "Connected successfully";
 
 // Close connection
-$conn->close();
+    $cnn->close();
 ?>
+
 
