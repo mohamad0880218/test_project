@@ -1,32 +1,19 @@
 <?php
 // Database connection
-$servername = "localhost"; // Change this if your database is hosted elsewhere
-$username = "wordpress"; // Change this to your database username
-$password = "wordpress"; // Change this to your database password
-$dbname = "wordpress"; // Change this to your database name
+$servername = "finalproject1.mysql.database.azure.com"; // Change this if your database is hosted elsewhere
+$username = "rizwan"; // Change this to your database username
+$password = "Pubg@39168"; // Change this to your database password
+$dbname = "mysql"; // Change this to your database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
+// Create connection
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// User registration
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+echo "Connected successfully";
 
-    // Hash the password (you should use password_hash() in a production environment)
-    $hashed_password = md5($password);
-
-    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashed_password')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Registration successful!";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
-
+// Close connection
 $conn->close();
 ?>
