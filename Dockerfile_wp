@@ -1,0 +1,14 @@
+FROM debian:10.13 
+# TZ=America/New_York
+RUN apt-get update
+RUN apt-get install -y nginx vim curl
+#RUN apt-get install -y mariadb-server 
+RUN apt-get install -y php7.3 php7.3-fpm php7.3-mysqli git
+RUN git clone https://github.com/mohamad0880218/test_project.git
+RUN cp -r ./test_project/* /var/www/html/
+RUN mv ./test_project/default /etc/nginx/sites-available/default
+RUN chmod +x ./test_project/entrypoint.sh
+EXPOSE 80
+
+
+CMD ["/test_project/entrypoint.sh"]

@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    ports:
+            - 3306:3306
+    environment:
+            - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD="1" 
+    networks:
+      - my-muliple-web-network
+    volumes:
+            - ./Data:/var/lib/mysql 
+
+
+
+  website:
+    depends_on:
+      - db
+    image: web
+    ports:
+      - 8080:80
+    networks:
+      - my-muliple-web-network
+
+
+networks:
+  my-muliple-web-network:
+    driver: bridge
