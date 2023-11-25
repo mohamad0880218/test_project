@@ -19,7 +19,7 @@ services:
       - db
     image: web
     ports:
-      - 8080:80
+      - 8000:80
     networks:
       - my-muliple-web-network
 

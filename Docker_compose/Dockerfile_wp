@@ -5,10 +5,13 @@ RUN apt-get install -y nginx vim curl
 #RUN apt-get install -y mariadb-server 
 RUN apt-get install -y php7.3 php7.3-fpm php7.3-mysqli git
 RUN git clone https://github.com/mohamad0880218/test_project.git
-RUN cp -r ./test_project/* /var/www/html/
-RUN mv ./test_project/default /etc/nginx/sites-available/default
-RUN chmod +x ./test_project/entrypoint.sh
+RUN cp -r ./test_project/Docker_compose/* /var/www/html/
+RUN mv ./test_project/Docker_compose/default /etc/nginx/sites-available/
+RUN chmod +x ./test_project/Docker_compose/entrypoint.sh
 EXPOSE 80
+#ENTRYPOINT ["/bin/bash"]
+#CMD ["/test_project/entrypoint.sh"]
 
-
-CMD ["/test_project/entrypoint.sh"]
+#ENTRYPOINT ["/bin/bash"]
+#CMD ["/bin/bash","/test_project/entrypoint.sh"]
+CMD ["/bin/bash","-c","/test_project/Docker_compose/entrypoint.sh"]
