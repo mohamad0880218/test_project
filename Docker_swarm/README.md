@@ -1,2 +1,0 @@
-This application is to demonstrate how 2 containers communicate with each other in a docker environment It requires a mariadb container to run. This webapp container connects to mongo container to save the data and to retreive it.
-![Alt text](image.png)![Alt text](image-1.png)![Alt text](image-2.png)![Alt text](image-3.png)
