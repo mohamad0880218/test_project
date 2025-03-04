@@ -1,5 +1,5 @@
 # Use the official NGINX image
-FROM nginx:latest
+FROM nginx
 
 # Set the working directory to NGINX's web directory
 WORKDIR /usr/share/nginx/html
