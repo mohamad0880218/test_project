@@ -1,6 +1,3 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" %>
-<%@ Register TagPrefix="asp" Namespace="System.Web.UI.WebControls" Assembly="System.Web" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +16,7 @@
     <div class="container">
         <div class="container form bg-white pt-5 mt-4 mb-3">
             <!-- Login Form -->
-            <p class="text-center login-heading hide-me">login</p>
+            <p class="text-center login-heading hide-me">Login</p>
 
             <div class="container hide-me">
                 <div class="row">
@@ -30,7 +27,7 @@
                                 <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
                             </div>
                             <div class="col-10 pl-0">
-                                <asp:TextBox ID="txtUsername" runat="server" CssClass="input-1" placeholder="Type your username"></asp:TextBox>
+                                <input type="text" name="username" id="username" class="input-1" placeholder="Type your username">
                             </div>
                         </div>
                         <hr class="hr-1">
@@ -44,7 +41,7 @@
                                 <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
                             </div>
                             <div class="col-10 pl-0">
-                                <asp:TextBox ID="txtPassword" runat="server" CssClass="input-2" TextMode="Password" placeholder="Type your password"></asp:TextBox>
+                                <input type="password" name="password" id="password" class="input-2" placeholder="Type your password">
                             </div>
                         </div>
                         <hr class="hr-2">
@@ -59,7 +56,9 @@
                 <div class="row mt-4">
                     <div class="col pl-5 pr-5">
                         <!-- Login Button -->
-                        <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-block text-white login-button" Text="Login" OnClick="btnLogin_Click" />
+                        <form action="register.php" method="POST">
+                            <button type="submit" class="btn btn-block text-white login-button">Login</button>
+                        </form>
                     </div>
                 </div>
 
@@ -76,18 +75,84 @@
                         <span class="google-icon"><i class="fa fa-google" aria-hidden="true"></i></span>
                     </div>
                 </div>
-                
+
+                <!-- Sign-up Prompt -->
                 <div class="row mt-5">
                     <div class="col text-center">
                         <span style="text-transform: capitalize; font-family: Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:rgb(148, 141, 141)">Don't have an account?</span>
                     </div>
                     <div class="col-12 text-center pt-3">
-                        <a href="#"><span class="sign-up">Sign up</span></a>
+                        <!-- Button to show sign up form -->
+                        <button type="button" class="btn btn-link sign-up" onclick="showSignUpForm()">Sign up</button>
                     </div>
                 </div>
             </div>
+
+            <!-- Sign Up Form (Initially Hidden) -->
+            <div class="container" id="signup-form" style="display:none;">
+                <div class="row">
+                    <div class="col mt-4 pl-5 pr-5">
+                        <p class="username">Create Username</p>
+                        <div class="row mt-4">
+                            <div class="col-2 text-center pt-1 pr-0">
+                                <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
+                            </div>
+                            <div class="col-10 pl-0">
+                                <input type="text" name="signup-username" id="signup-username" class="input-1" placeholder="Create your username">
+                            </div>
+                        </div>
+                        <hr class="hr-1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-4 pl-5 pr-5">
+                        <p class="username">Create Password</p>
+                        <div class="row mt-4">
+                            <div class="col-2 text-center pt-1 pr-0">
+                                <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
+                            </div>
+                            <div class="col-10 pl-0">
+                                <input type="password" name="signup-password" id="signup-password" class="input-2" placeholder="Create your password">
+                            </div>
+                        </div>
+                        <hr class="hr-2">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col pl-5 pr-5">
+                        <!-- Sign Up Button -->
+                        <form action="register.php" method="POST">
+                            <button type="submit" class="btn btn-block text-white login-button">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Link to go back to Login Form -->
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-link" onclick="goBackToLogin()">Back to Login</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <script>
+        // Function to show the Sign-Up Form
+        function showSignUpForm() {
+            // Hide login form and show sign-up form
+            document.querySelector('.hide-me').style.display = 'none';
+            document.getElementById('signup-form').style.display = 'block';
+        }
+
+        // Function to go back to Login Form
+        function goBackToLogin() {
+            // Hide sign-up form and show login form
+            document.getElementById('signup-form').style.display = 'none';
+            document.querySelector('.hide-me').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
