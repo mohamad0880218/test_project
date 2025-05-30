@@ -1,0 +1,58 @@
+# 🌐 Responsive E-commerce Website (Microservice Deployment)
+
+This project demonstrates a front-end and back-end deployment of a responsive e-commerce website using **Docker**, **Docker Swarm**, and **Kubernetes**. It includes a MongoDB backend for persistent data and showcases deployment on both **local infrastructure** and **Google Cloud Platform (GCP)**.
+
+---
+
+## 📦 Tech Stack
+
+| Component        | Technology           |
+|------------------|----------------------|
+| Frontend         | HTML, CSS, JavaScript |
+| Backend/API      | Node.js / Express    |
+| Database         | MongoDB              |
+| Containerization | Docker               |
+| Orchestration    | Docker Swarm (Local), Kubernetes (GKE) |
+| Cloud Platform   | Google Cloud Platform (GCP) |
+
+### Components
+
+- **Frontend**: Responsive HTML/CSS/JS-based e-commerce UI
+- **Backend**: Node/Python service (optional, depending on stack)
+- **Database**: MongoDB container
+- **Orchestration**:
+  - **Docker Swarm**: Used locally to orchestrate multi-container setup
+  - **Kubernetes (GKE)**: Used in Google Cloud for production-level deployment
+
+---
+
+## 🛠️ Key Features
+
+1. Responsive animations and UI design
+2. Authenticated login, signup, and contact forms
+3. Categorized product listings
+4. Secure payment and cart page
+5. MongoDB-based product and user data management
+
+---
+
+## 🌐 Deployment Strategy
+
+| Tool          | Purpose                               |
+|---------------|----------------------------------------|
+| Docker        | Containerize frontend and MongoDB      |
+| Docker Swarm  | Local multi-container orchestration    |
+| Kubernetes (GKE) | Scalable deployment on Google Cloud |
+| MongoDB       | NoSQL database for product data        |
+
+---
+
+## 📂 Folder Structure
+
+```bash
+test_project/
+│
+├── Docker_compose/          # Docker Compose for local testing
+├── Docker_swarm/            # Swarm deployment files
+├── kubernetees/             # Kubernetes deployment configs (YAML)
+└── README.md
